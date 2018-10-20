@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Practical use of React and Webpack in an ASP.NET MVC Web App</h1>
+        <hr/>
+        <div id="demoRct" style="height: 20px"></div>
+    </div>
+</div>
+<div>
+    <div class="h4">Long Loading Simulation</div>
+    <ul>
+        <li id="longLoadDemoRct" class="text-warning">Loading...</li>
+        <li>The text of the bullet above this bullet is rendered by a React component. Reload the page and see how the above bullet initially says "<span class="text-warning">Loading...</span>". In the Jumbotron the "<span class="text-success">it works!</span>" text and the Info button are also rendered by a React component--so these also take a moment to render after the initial page load. The reason the above bullet seems to take much longer to load than the other React components is that this above bullet's React component initially renders the exact same "<span class="text-warning">Loading...</span>" text, waits 3 seconds, and then renders the new text...what if it took this long to render all these React components?!</li>
+        <li>It can take pretty long to load all the client-side rendering files in a large SPA (even with bundling, minification, and compression) which is where SSR shines. This little starter app is intended to demonstrate a targeted approach to using React. This approach is to use ASP.NET MVC built-in SSR via Razor views for most of the page rendering and to use React in a targeted manner for specific components in the app that need to be interactive.</li>
+    </ul>
+    <div class="h4">Thoughts on "isomorphic"/"universal" rendering with this tech stack</div>
+    <ul>
+        <li>The Navbar at the top of this page is rendered server-side via Razor in the shared _Layout page and is also rendered by a React component--resulting in no apparent rendering delay!
+            <ul>
+                <li>As already stated, one nice result of this server and client rendering of the Navbar is eliminating apparent rendering delay</li>
+                <li>A reason NOT to do this is the duplicate code--I would most like not do this with other components, but the Navbar seems possibly worth it</li>
+                <li>A specific reason NOT to render the Navbar server-side ONLY in this app is that we lose the Javascript dropdown functionality since we are relying on the Reactstrap NPM library for Javascript--this is why the Navbar is rendered both server-side and client-side</li>
+                <li>Of course, there are many other approaches and side effects to consider</li>
+            </ul>
+        </li>
+        <li>The point of this little app is to show how to get started with this approach and to throw out some teaser thoughts on how to run with this tech stack</li>
+    </ul>
+</div>

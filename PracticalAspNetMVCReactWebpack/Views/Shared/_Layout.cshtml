@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div id="navbarRct">
+        <div id="navbarRct">
+            <div>
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <a href="/"
+                       class="navbar-brand">My ASP.NET MVC App with React</a>
+
+                    <button type="button"
+                            class="navbar-toggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="ml-auto navbar-nav">
+                            <li class="nav-item">
+                                @Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://github.com/egnomerator">GitHub</a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a aria-haspopup="true"
+                                   href="#"
+                                   class="dropdown-toggle nav-link"
+                                   aria-expanded="false">Options</a>
+
+                                <div tabindex="-1"
+                                     role="menu"
+                                     aria-hidden="true"
+                                     class="dropdown-menu dropdown-menu-right">
+                                    <button type="button"
+                                            tabindex="0"
+                                            class="dropdown-item">
+                                        Option 1
+                                    </button>
+
+                                    <button type="button"
+                                            tabindex="0"
+                                            class="dropdown-item">
+                                        Option 2
+                                    </button>
+
+                                    <div tabindex="-1"
+                                         class="dropdown-divider"></div>
+
+                                    <button type="button"
+                                            tabindex="0"
+                                            class="dropdown-item">
+                                        Reset
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    
+    <script type="module" src="~/Scripts/dist/webpack_bundle_app.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
